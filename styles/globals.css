@@ -6,11 +6,27 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
 * {
   box-sizing: border-box;
+}
+
+header {
+  height: 5vh;
+  display: flex;
+  padding: 0.2rem;
+}
+header input {
+  flex: 1;
+  border: 1px solid black;
+  outline: none;
+  padding: 0 0.4rem;
+}
+header button {
+  padding: 0 1rem;
+  cursor: pointer;
+}
+
+#viewer {
+  width: 100%;
+  height: 95vh;
 }
