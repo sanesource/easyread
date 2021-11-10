@@ -29,6 +29,10 @@ const Home: NextPage = () => {
           name="description"
           content="Easily read books, anytime, anywhere."
         />
+        <meta
+          httpEquiv="Content-Security-Policy"
+          content="upgrade-insecure-requests"
+        />
       </Head>
       <header>
         <input type="text" placeholder="Enter Book Name" ref={inputRef} />
