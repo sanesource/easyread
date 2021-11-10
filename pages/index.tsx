@@ -8,12 +8,19 @@ const Home: NextPage = () => {
   const viewerRef = useRef(null);
   const [currentBook, setCurrentBook] = useState<string>();
 
+  function getSecureResult(results: Array<string>) {
+    results.forEach((result) => {
+      if (result.includes("https")) return result;
+    });
+    return results[0];
+  }
+
   async function onClickSearch() {
     const input = inputRef.current!.value;
     if (currentBook !== input) {
       const res = await fetch(`/api/results?input=${input}`);
       const { results } = await res.json();
-      const url = results[0];
+      const url = getSecureResult(results);
       if (url) {
         setCurrentBook(input);
         PDFObject.embed(url, viewerRef.current);
