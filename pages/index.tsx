@@ -11,10 +11,14 @@ const Home: NextPage = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   function getSecureResult(results: Array<string>) {
-    results.forEach((result) => {
-      if (result.includes("https")) return result;
-    });
-    return results[0];
+    let url = results[0];
+    for (let result of results) {
+      if (result.startsWith("https")) {
+        url = result;
+        break;
+      }
+    }
+    return url;
   }
 
   async function onClickSearch() {
